@@ -1,0 +1,44 @@
+From 1404079bd85de8b054f0be6578a677a9cf2ac2de Mon Sep 17 00:00:00 2001
+From: Colin Godsey <crgodsey@gmail.com>
+Date: Sat, 9 Mar 2019 18:31:12 -0700
+Subject: [PATCH] stair collision for pe fix
+
+
+diff --git a/src/main/java/net/minecraft/server/IWorldReader.java b/src/main/java/net/minecraft/server/IWorldReader.java
+index cf53118cc..f43d8ef5c 100644
+--- a/src/main/java/net/minecraft/server/IWorldReader.java
++++ b/src/main/java/net/minecraft/server/IWorldReader.java
+@@ -111,7 +111,20 @@ public interface IWorldReader extends IBlockAccess {
+         return this.a(entity, VoxelShapes.a(axisalignedbb));
+     }
+ 
+-    default Stream<VoxelShape> a(VoxelShape voxelshape, VoxelShape voxelshape1, boolean flag) {
++    //yesdog start
++    default boolean rayTraceIgnore(IBlockData data, boolean isPlayer) {
++        if (!isPlayer) return false;
++        if (data.getBlock() instanceof BlockStairs) return true;
++        if (data.getBlock() instanceof BlockStepAbstract) return true;
++        if (data.getBlock() instanceof BlockCarpet) return true;
++        if (data.getBlock() instanceof BlockSnow) return true;
++
++        return false;
++    }
++    VoxelShape slimSmallBB = VoxelShapes.create(0.15, 0, 0.15, 0.85, 0.05, 0.85);
++    //yesdog end
++
++    default Stream<VoxelShape> a(VoxelShape voxelshape, VoxelShape voxelshape1, boolean flag, boolean isPlayer) { //yesdog
+         int i = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.X)) - 1;
+         int j = MathHelper.f(voxelshape.c(EnumDirection.EnumAxis.X)) + 1;
+         int k = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.Y)) - 1;
+@@ -186,7 +199,7 @@ public interface IWorldReader extends IBlockAccess {
+             entity.n(!flag1);
+         }
+ 
+-        return this.a(voxelshape, voxelshape1, flag1);
++        return this.a(voxelshape, voxelshape1, flag1, entity instanceof EntityPlayer); //yesdog
+     }
+ 
+     default boolean i(Entity entity) {
+-- 
+2.17.2 (Apple Git-113)
+
