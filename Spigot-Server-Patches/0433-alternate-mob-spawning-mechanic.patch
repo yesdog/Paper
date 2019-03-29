@@ -1,4 +1,4 @@
-From 541a04169adeb543601909531b01c89fb5b4c452 Mon Sep 17 00:00:00 2001
+From 776814a9ab1f671cb7a505f34fd8d9a95895ebcf Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Thu, 28 Mar 2019 19:48:49 -0600
 Subject: [PATCH] alternate mob spawning mechanic
@@ -145,10 +145,10 @@ index f4a1939cc..da3ef1fc4 100644
  
      public static enum EnumTileEntityState {
 diff --git a/src/main/java/net/minecraft/server/EntityInsentient.java b/src/main/java/net/minecraft/server/EntityInsentient.java
-index 3059682a4..55806e818 100644
+index 095ea514c..db182dc42 100644
 --- a/src/main/java/net/minecraft/server/EntityInsentient.java
 +++ b/src/main/java/net/minecraft/server/EntityInsentient.java
-@@ -753,6 +753,7 @@ public abstract class EntityInsentient extends EntityLiving {
+@@ -754,6 +754,7 @@ public abstract class EntityInsentient extends EntityLiving {
          return f + f3;
      }
  
@@ -156,7 +156,7 @@ index 3059682a4..55806e818 100644
      public boolean a(GeneratorAccess generatoraccess, boolean flag) {
          IBlockData iblockdata = generatoraccess.getType((new BlockPosition(this)).down());
  
-@@ -763,10 +764,12 @@ public abstract class EntityInsentient extends EntityLiving {
+@@ -764,10 +765,12 @@ public abstract class EntityInsentient extends EntityLiving {
          return this.a((IWorldReader) this.world);
      }
  
@@ -493,10 +493,10 @@ index 17bb81c03..a1169fda6 100644
          if (entitytypes != null && iworldreader.getWorldBorder().a(blockposition)) {
              IBlockData iblockdata = iworldreader.getType(blockposition);
 diff --git a/src/main/java/net/minecraft/server/WorldServer.java b/src/main/java/net/minecraft/server/WorldServer.java
-index a4fc1e5e2..bd016e941 100644
+index 5c2421ac3..dca77df89 100644
 --- a/src/main/java/net/minecraft/server/WorldServer.java
 +++ b/src/main/java/net/minecraft/server/WorldServer.java
-@@ -327,6 +327,8 @@ public class WorldServer extends World implements IAsyncTaskHandler {
+@@ -328,6 +328,8 @@ public class WorldServer extends World implements IAsyncTaskHandler {
          return this.P;
      }
  
@@ -505,7 +505,7 @@ index a4fc1e5e2..bd016e941 100644
      @Nullable
      public BiomeBase.BiomeMeta a(EnumCreatureType enumcreaturetype, BlockPosition blockposition) {
          List<BiomeBase.BiomeMeta> list = this.getChunkProvider().a(enumcreaturetype, blockposition);
-@@ -334,6 +336,8 @@ public class WorldServer extends World implements IAsyncTaskHandler {
+@@ -335,6 +337,8 @@ public class WorldServer extends World implements IAsyncTaskHandler {
          return list.isEmpty() ? null : (BiomeBase.BiomeMeta) WeightedRandom.a(this.random, list);
      }
  

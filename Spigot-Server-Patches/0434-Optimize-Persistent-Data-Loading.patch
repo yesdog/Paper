@@ -1,4 +1,4 @@
-From 5a8512c1ef32e5504e61dbd40d0e8022629799ca Mon Sep 17 00:00:00 2001
+From 19a20668ad62d55d73d146020f0e1c909c31ea39 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Fri, 29 Mar 2019 01:25:11 -0400
 Subject: [PATCH] Optimize Persistent Data Loading
@@ -52,7 +52,7 @@ index 8d51af286..e86d382c8 100644
          FileInputStream fileinputstream = new FileInputStream(file);
          Throwable throwable = null;
 diff --git a/src/main/java/net/minecraft/server/WorldServer.java b/src/main/java/net/minecraft/server/WorldServer.java
-index 5c2421ac3..ee071ba2f 100644
+index dca77df89..a23dbc590 100644
 --- a/src/main/java/net/minecraft/server/WorldServer.java
 +++ b/src/main/java/net/minecraft/server/WorldServer.java
 @@ -80,7 +80,7 @@ public class WorldServer extends World implements IAsyncTaskHandler {
