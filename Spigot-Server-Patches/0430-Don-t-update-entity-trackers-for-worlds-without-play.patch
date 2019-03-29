@@ -1,4 +1,4 @@
-From 2d10001164d6563f0776f9817261f653e036e67c Mon Sep 17 00:00:00 2001
+From 744ce903dd30d03ef7cdd923fcc76ee1ffe84f21 Mon Sep 17 00:00:00 2001
 From: Shane Freeder <theboyetronic@gmail.com>
 Date: Sun, 24 Mar 2019 18:52:31 +0000
 Subject: [PATCH] Don't update entity trackers for worlds without players
@@ -27,5 +27,5 @@ index ce39ea09e..b93fccf91 100644
                  this.methodProfiler.exit();
                  worldserver.explosionDensityCache.clear(); // Paper - Optimize explosions
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

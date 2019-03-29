@@ -1,4 +1,4 @@
-From be2655721b882338f58cc53bbeeec14af6589769 Mon Sep 17 00:00:00 2001
+From a0aa56bfad32c93d3991e6061560d3bbbba28330 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Sun, 24 Mar 2019 18:09:20 -0400
 Subject: [PATCH] don't go below 0 for pickupDelay, breaks picking up items
@@ -26,5 +26,5 @@ index e723bd339..5f6e81372 100644
          this.lastTick = MinecraftServer.currentTick;
          // CraftBukkit end
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

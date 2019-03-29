@@ -1,11 +1,11 @@
-From c02e172560f6518901f1bec9105493329b0938af Mon Sep 17 00:00:00 2001
+From 6b60e46af00d6167f9997c79251d9cfca0531d47 Mon Sep 17 00:00:00 2001
 From: MisterVector <whizkid3000@hotmail.com>
 Date: Fri, 26 Oct 2018 21:31:00 -0700
 Subject: [PATCH] Implement PlayerPostRespawnEvent
 
 
 diff --git a/src/main/java/net/minecraft/server/PlayerList.java b/src/main/java/net/minecraft/server/PlayerList.java
-index b1630137e..fbabe5fdf 100644
+index df416e3b5..012238ac2 100644
 --- a/src/main/java/net/minecraft/server/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/PlayerList.java
 @@ -663,9 +663,14 @@ public abstract class PlayerList {
@@ -47,5 +47,5 @@ index b1630137e..fbabe5fdf 100644
          return entityplayer1;
      }
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

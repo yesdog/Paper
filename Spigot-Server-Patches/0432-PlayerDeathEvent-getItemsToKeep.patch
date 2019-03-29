@@ -1,4 +1,4 @@
-From c2d817326641fd28090ef59ea0da9e6877796bb4 Mon Sep 17 00:00:00 2001
+From 2995c17d221931046dcb1cdeacb2548f09cc290e Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Wed, 27 Mar 2019 23:01:33 -0400
 Subject: [PATCH] PlayerDeathEvent#getItemsToKeep
@@ -75,5 +75,5 @@ index 1d3730083..b9d0c0f74 100644
          this.setSpectatorTarget(this); // Remove spectated target
          // CraftBukkit end
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

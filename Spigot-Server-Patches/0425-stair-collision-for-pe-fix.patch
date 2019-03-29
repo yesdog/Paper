@@ -1,11 +1,11 @@
-From 1404079bd85de8b054f0be6578a677a9cf2ac2de Mon Sep 17 00:00:00 2001
+From 7758591de8546e3a2da9a720000200c5e0f8fc48 Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Sat, 9 Mar 2019 18:31:12 -0700
 Subject: [PATCH] stair collision for pe fix
 
 
 diff --git a/src/main/java/net/minecraft/server/IWorldReader.java b/src/main/java/net/minecraft/server/IWorldReader.java
-index cf53118cc..f43d8ef5c 100644
+index 554825ec1..d674442f5 100644
 --- a/src/main/java/net/minecraft/server/IWorldReader.java
 +++ b/src/main/java/net/minecraft/server/IWorldReader.java
 @@ -111,7 +111,20 @@ public interface IWorldReader extends IBlockAccess {
