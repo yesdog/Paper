@@ -1,4 +1,4 @@
-From 776814a9ab1f671cb7a505f34fd8d9a95895ebcf Mon Sep 17 00:00:00 2001
+From 894bf241d27269d13e59c07a8db9c2565460a6d4 Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Thu, 28 Mar 2019 19:48:49 -0600
 Subject: [PATCH] alternate mob spawning mechanic
@@ -234,7 +234,7 @@ index ac5d15809..6a80d640f 100644
          return this.done;
      }
 diff --git a/src/main/java/net/minecraft/server/SpawnerCreature.java b/src/main/java/net/minecraft/server/SpawnerCreature.java
-index 17bb81c03..a1169fda6 100644
+index 17bb81c03..4d494725a 100644
 --- a/src/main/java/net/minecraft/server/SpawnerCreature.java
 +++ b/src/main/java/net/minecraft/server/SpawnerCreature.java
 @@ -1,10 +1,12 @@
@@ -246,7 +246,7 @@ index 17bb81c03..a1169fda6 100644
  import java.util.Random;
  import java.util.Set;
 +import java.util.HashSet; // Paper
-+import java.util.Map;
++import java.util.Map; // Paper
 +import java.util.EnumMap; // Paper
  import javax.annotation.Nullable;
  import org.apache.logging.log4j.LogManager;
@@ -260,10 +260,11 @@ index 17bb81c03..a1169fda6 100644
  public final class SpawnerCreature {
  
      private static final Logger a = LogManager.getLogger();
-@@ -24,7 +28,223 @@ public final class SpawnerCreature {
+@@ -24,7 +28,218 @@ public final class SpawnerCreature {
  
      public SpawnerCreature() {}
  
++    // Paper start
 +    public static int getSpawnRange(WorldServer world, EntityHuman player) {
 +        byte mobSpawnRange = world.spigotConfig.mobSpawnRange;
 +
@@ -377,7 +378,7 @@ index 17bb81c03..a1169fda6 100644
 +
 +                if (entity.canSpawnHere() && surfaceType != null
 +                        && isValidSpawnSurface(surfaceType, world, blockPointer, biomeSpawn.getEntityType())
-+                        && entity.isNotColliding(world) && !world.isPlayerNearby(x + 0.5, y, z + 0.5, 18)) { //was 24
++                        && entity.isNotColliding(world) && !world.isPlayerNearby(x + 0.5, y, z + 0.5, 24)) {
 +                    group = entity.prepare(world.getDamageScaler(new BlockPosition(entity)), group, null);
 +
 +                    if (entity.isNotColliding(world) && world.addEntity(entity, SpawnReason.NATURAL))
@@ -399,13 +400,6 @@ index 17bb81c03..a1169fda6 100644
 +    public int paperSpawnMob(WorldServer world, boolean spawnMonsters, boolean spawnPassives, boolean spawnRare) {
 +        if(!spawnMonsters && !spawnPassives) return 0;
 +
-+        /*
-+        Pick a unique ordinal at the start of every qualify process,
-+        that will be used for all ChunkCoordOrdinalInt3Tuple.
-+        This ordinal will provide random sorting in the set, but still
-+        provide equality as long as the same ordinal is used
-+        throughout this invocation of the spawn routine.
-+         */
 +        int hashOrdinal = world.random.nextInt();
 +
 +        Set<Chunk> rangeChunks = new HashSet();
@@ -478,13 +472,14 @@ index 17bb81c03..a1169fda6 100644
 +
 +        return totalSpawned;
 +    }
++    // Paper end
 +
      public int a(WorldServer worldserver, boolean flag, boolean flag1, boolean flag2) {
 +        if(worldserver.paperConfig.useImprovedSpawning) return paperSpawnMob(worldserver, flag, flag1, flag2); // Paper - improved mob spawning
          if (!flag && !flag1) {
              return 0;
          } else {
-@@ -267,6 +487,7 @@ public final class SpawnerCreature {
+@@ -267,6 +482,7 @@ public final class SpawnerCreature {
          return iblockdata.k() ? false : (iblockdata.isPowerSource() ? false : (!fluid.e() ? false : !iblockdata.a(TagsBlock.RAILS)));
      }
  
