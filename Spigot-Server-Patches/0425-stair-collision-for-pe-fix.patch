@@ -1,11 +1,11 @@
-From 9a8f89a62843455141db2721d8a4a19176c671a8 Mon Sep 17 00:00:00 2001
+From 1f98d7be1cc5094688eee20a668ac9287c425c83 Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Sat, 9 Mar 2019 18:31:12 -0700
 Subject: [PATCH] stair collision for pe fix
 
 
 diff --git a/src/main/java/net/minecraft/server/IWorldReader.java b/src/main/java/net/minecraft/server/IWorldReader.java
-index 554825ec1..0d8742888 100644
+index 554825ec1..a9c227f78 100644
 --- a/src/main/java/net/minecraft/server/IWorldReader.java
 +++ b/src/main/java/net/minecraft/server/IWorldReader.java
 @@ -111,7 +111,20 @@ public interface IWorldReader extends IBlockAccess {
@@ -30,7 +30,21 @@ index 554825ec1..0d8742888 100644
          int i = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.X)) - 1;
          int j = MathHelper.f(voxelshape.c(EnumDirection.EnumAxis.X)) + 1;
          int k = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.Y)) - 1;
-@@ -186,7 +199,7 @@ public interface IWorldReader extends IBlockAccess {
+@@ -138,7 +151,12 @@ public interface IWorldReader extends IBlockAccess {
+                 if (flag && !flag1 && !worldborder.a((BlockPosition) blockposition_mutableblockposition)) {
+                     voxelshape2 = VoxelShapes.b();
+                 } else {
+-                    voxelshape2 = this.getType(blockposition_mutableblockposition).getCollisionShape(this, blockposition_mutableblockposition);
++                    //yesdog start
++                    //voxelshape2 = this.getType(blockposition_mutableblockposition).getCollisionShape(this, blockposition_mutableblockposition);
++                    IBlockData data = this.getType(blockposition_mutableblockposition);
++                    voxelshape2 = data.getCollisionShape(this, blockposition_mutableblockposition);
++                    if (rayTraceIgnore(data, isPlayer)) return slimSmallBB;
++                    //yesdog end
+                 }
+ 
+                 VoxelShape voxelshape3 = voxelshape1.a((double) (-k1), (double) (-l1), (double) (-i2));
+@@ -186,7 +204,7 @@ public interface IWorldReader extends IBlockAccess {
              entity.n(!flag1);
          }
  
