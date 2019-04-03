@@ -1,4 +1,4 @@
-From 2995c17d221931046dcb1cdeacb2548f09cc290e Mon Sep 17 00:00:00 2001
+From 3344873c847e07579103406b34e1126fc8d63bf6 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Wed, 27 Mar 2019 23:01:33 -0400
 Subject: [PATCH] PlayerDeathEvent#getItemsToKeep

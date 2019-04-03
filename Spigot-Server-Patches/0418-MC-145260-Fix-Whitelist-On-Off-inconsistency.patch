@@ -1,4 +1,4 @@
-From d7db57b339c57a92499d3cf10f4d6f55ad3fc104 Mon Sep 17 00:00:00 2001
+From ff872a70399b89fe85a6332be178d8813a399221 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Sat, 2 Mar 2019 16:12:35 -0500
 Subject: [PATCH] MC-145260: Fix Whitelist On/Off inconsistency
@@ -62,5 +62,5 @@ index 135d25abd..408c382d2 100644
  
      public List<EntityPlayer> b(String s) {
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

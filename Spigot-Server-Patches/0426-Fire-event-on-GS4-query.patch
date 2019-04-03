@@ -1,4 +1,4 @@
-From 1a9cdfab77c039d03c6408af1f8dbf80137c51f0 Mon Sep 17 00:00:00 2001
+From c87a9f0eda2f35a98b50fb3c1243179ef42aa8f0 Mon Sep 17 00:00:00 2001
 From: Mark Vainomaa <mikroskeem@mikroskeem.eu>
 Date: Sun, 17 Mar 2019 21:46:56 +0200
 Subject: [PATCH] Fire event on GS4 query

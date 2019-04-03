@@ -1,4 +1,4 @@
-From 9e85ab2027dac98fc5f8252b955be863a7cb64f3 Mon Sep 17 00:00:00 2001
+From 3633580bb504a00b405faa614425d98055356ffd Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Sun, 24 Mar 2019 01:01:32 -0400
 Subject: [PATCH] Only count Natural Spawned mobs towards natural spawn mob
@@ -62,5 +62,5 @@ index a10a5bc13..a5a63f800 100644
          if (entity instanceof EntityInsentient) {
              EntityInsentient entityinsentient = (EntityInsentient) entity;
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

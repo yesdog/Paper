@@ -1,4 +1,4 @@
-From 744ce903dd30d03ef7cdd923fcc76ee1ffe84f21 Mon Sep 17 00:00:00 2001
+From 2b72bfa5e93e8ce60a32cec1a3e6340d1d651419 Mon Sep 17 00:00:00 2001
 From: Shane Freeder <theboyetronic@gmail.com>
 Date: Sun, 24 Mar 2019 18:52:31 +0000
 Subject: [PATCH] Don't update entity trackers for worlds without players
