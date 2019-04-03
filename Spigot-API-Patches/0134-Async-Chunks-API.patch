@@ -1,4 +1,4 @@
-From e0bd691e726a2082f30e462d6afb9e3004c1bc56 Mon Sep 17 00:00:00 2001
+From 00cc998256d1b72114373e332cb0285b45d923e2 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Mon, 29 Feb 2016 17:43:33 -0600
 Subject: [PATCH] Async Chunks API
@@ -8,7 +8,7 @@ Adds API's to load or generate chunks asynchronously.
 Also adds utility methods to Entity to teleport asynchronously.
 
 diff --git a/src/main/java/org/bukkit/World.java b/src/main/java/org/bukkit/World.java
-index c5da4d387..1b0744ed9 100644
+index c5da4d38..1b0744ed 100644
 --- a/src/main/java/org/bukkit/World.java
 +++ b/src/main/java/org/bukkit/World.java
 @@ -163,6 +163,358 @@ public interface World extends PluginMessageRecipient, Metadatable {
@@ -371,10 +371,10 @@ index c5da4d387..1b0744ed9 100644
  
      /**
 diff --git a/src/main/java/org/bukkit/entity/Entity.java b/src/main/java/org/bukkit/entity/Entity.java
-index a7f81d17d..73b75ffda 100644
+index 81d92145..373ee223 100644
 --- a/src/main/java/org/bukkit/entity/Entity.java
 +++ b/src/main/java/org/bukkit/entity/Entity.java
-@@ -145,6 +145,30 @@ public interface Entity extends Metadatable, CommandSender, Nameable {
+@@ -158,6 +158,30 @@ public interface Entity extends Metadatable, CommandSender, Nameable {
       */
      public boolean teleport(@NotNull Entity destination, @NotNull TeleportCause cause);
  
@@ -406,5 +406,5 @@ index a7f81d17d..73b75ffda 100644
       * Returns a list of entities within a bounding box centered around this
       * entity
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 
