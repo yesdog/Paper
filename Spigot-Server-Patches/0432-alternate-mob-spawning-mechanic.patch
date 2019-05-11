@@ -1,14 +1,14 @@
-From 24c442de168c0fbbd16ea7f2a185c0580659fbd2 Mon Sep 17 00:00:00 2001
+From 9211578d5c1367d83ea0c8cfd6ef7f2bf0962606 Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Thu, 28 Mar 2019 19:48:49 -0600
 Subject: [PATCH] alternate mob spawning mechanic
 
 
 diff --git a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
-index fc7ac2bc0..4aa42a73a 100644
+index bfd690ecc..28bdb3a59 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java
-@@ -599,4 +599,12 @@ public class PaperWorldConfig {
+@@ -608,4 +608,12 @@ public class PaperWorldConfig {
              log("Using improved mob spawn limits (Only Natural Spawns impact spawn limits for more natural spawns)");
          }
      }
@@ -86,7 +86,7 @@ index 3496d4236..1fc703e85 100644
  
          public BiomeMeta(EntityTypes<? extends EntityInsentient> entitytypes, int i, int j, int k) {
 diff --git a/src/main/java/net/minecraft/server/Chunk.java b/src/main/java/net/minecraft/server/Chunk.java
-index f4a1939cc..da3ef1fc4 100644
+index 46804203f..494316e8d 100644
 --- a/src/main/java/net/minecraft/server/Chunk.java
 +++ b/src/main/java/net/minecraft/server/Chunk.java
 @@ -3,7 +3,6 @@ package net.minecraft.server;
@@ -105,7 +105,7 @@ index f4a1939cc..da3ef1fc4 100644
      // Paper end
      public boolean areNeighborsLoaded(final int radius) {
          switch (radius) {
-@@ -743,6 +743,10 @@ public class Chunk implements IChunkAccess {
+@@ -746,6 +746,10 @@ public class Chunk implements IChunkAccess {
              itemCounts[k]++;
          } else if (entity instanceof IInventory) {
              inventoryEntityCounts[k]++;
@@ -114,9 +114,9 @@ index f4a1939cc..da3ef1fc4 100644
 +            if(type != null)
 +                creatureCounts[type.ordinal()]++;
          }
-         entity.setCurrentChunk(this);
-         entityCounts.increment(entity.getMinecraftKeyString());
-@@ -776,6 +780,16 @@ public class Chunk implements IChunkAccess {
+         // Paper end
+     }
+@@ -780,6 +784,16 @@ public class Chunk implements IChunkAccess {
              itemCounts[i]--;
          } else if (entity instanceof IInventory) {
              inventoryEntityCounts[i]--;
@@ -131,9 +131,9 @@ index f4a1939cc..da3ef1fc4 100644
 +                    creatureCounts[ord] = 0;
 +            }
          }
-         entity.setCurrentChunk(null);
          entityCounts.decrement(entity.getMinecraftKeyString());
-@@ -1519,6 +1533,10 @@ public class Chunk implements IChunkAccess {
+         // Paper end
+@@ -1520,6 +1534,10 @@ public class Chunk implements IChunkAccess {
              runnable.run();
          }
      }
@@ -145,7 +145,7 @@ index f4a1939cc..da3ef1fc4 100644
  
      public static enum EnumTileEntityState {
 diff --git a/src/main/java/net/minecraft/server/EntityInsentient.java b/src/main/java/net/minecraft/server/EntityInsentient.java
-index 095ea514c..db182dc42 100644
+index d1ec201d8..4bac14626 100644
 --- a/src/main/java/net/minecraft/server/EntityInsentient.java
 +++ b/src/main/java/net/minecraft/server/EntityInsentient.java
 @@ -754,6 +754,7 @@ public abstract class EntityInsentient extends EntityLiving {
@@ -234,7 +234,7 @@ index ac5d15809..6a80d640f 100644
          return this.done;
      }
 diff --git a/src/main/java/net/minecraft/server/SpawnerCreature.java b/src/main/java/net/minecraft/server/SpawnerCreature.java
-index 17bb81c03..4d494725a 100644
+index 297c53d15..6a533dc8f 100644
 --- a/src/main/java/net/minecraft/server/SpawnerCreature.java
 +++ b/src/main/java/net/minecraft/server/SpawnerCreature.java
 @@ -1,10 +1,12 @@

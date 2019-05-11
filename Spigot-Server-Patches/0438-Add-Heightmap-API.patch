@@ -1,4 +1,4 @@
-From aae0b5f4b74ab34bbd6d0f3bcd5c34e78bcffabb Mon Sep 17 00:00:00 2001
+From c2774cd4a947d85e43079500dd8ffa478e759b95 Mon Sep 17 00:00:00 2001
 From: Spottedleaf <Spottedleaf@users.noreply.github.com>
 Date: Tue, 1 Jan 2019 02:22:01 -0800
 Subject: [PATCH] Add Heightmap API
@@ -50,5 +50,5 @@ index 40ee34675..457aa5a3f 100644
          BlockPosition spawn = world.getSpawn();
          return new Location(this, spawn.getX(), spawn.getY(), spawn.getZ());
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

@@ -1,4 +1,4 @@
-From 746b2dc3bcd9c7adcce8648dcf5ee18874a5e5cb Mon Sep 17 00:00:00 2001
+From 3dcc4cc0e8ddb6b3385898d0a6ae0fbe4ccc0508 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Sat, 6 Apr 2019 10:16:48 -0400
 Subject: [PATCH] Optimize Captured TileEntity Lookup
@@ -10,7 +10,7 @@ Optimize to check if the captured list even has values in it, and also to
 just do a get call since the value can never be null.
 
 diff --git a/src/main/java/net/minecraft/server/World.java b/src/main/java/net/minecraft/server/World.java
-index 0e8025d311..b940f95bdb 100644
+index 0e8025d31..b940f95bd 100644
 --- a/src/main/java/net/minecraft/server/World.java
 +++ b/src/main/java/net/minecraft/server/World.java
 @@ -1935,12 +1935,13 @@ public abstract class World implements IEntityAccess, GeneratorAccess, IIBlockAc
@@ -31,5 +31,5 @@ index 0e8025d311..b940f95bdb 100644
              if (this.J) {
                  tileentity = this.E(blockposition);
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 
