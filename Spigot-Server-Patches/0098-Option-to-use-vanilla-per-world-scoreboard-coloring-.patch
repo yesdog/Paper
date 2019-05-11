@@ -1,4 +1,4 @@
-From 37a67d8562ace9e45671aa956335bb24ee186c5d Mon Sep 17 00:00:00 2001
+From 599cb99f58db98b1677c4db73d3d14a4fc8387c3 Mon Sep 17 00:00:00 2001
 From: Zach Brown <zach.brown@destroystokyo.com>
 Date: Wed, 6 Apr 2016 01:04:23 -0500
 Subject: [PATCH] Option to use vanilla per-world scoreboard coloring on names
@@ -26,10 +26,10 @@ index 260c55016..37cc057ab 100644
 +    }
  }
 diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
-index 72c06cdb8..5516726e8 100644
+index 545899fc2..66aa3bde6 100644
 --- a/src/main/java/net/minecraft/server/PlayerConnection.java
 +++ b/src/main/java/net/minecraft/server/PlayerConnection.java
-@@ -1610,7 +1610,16 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+@@ -1611,7 +1611,16 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
                      return;
                  }
  
@@ -61,5 +61,5 @@ index 6e62ea90d..523694899 100644
          worldserver = server.getWorldServer(entityplayer.dimension);  // CraftBukkit - Update in case join event changed it
          playerconnection.a(entityplayer.locX, entityplayer.locY, entityplayer.locZ, entityplayer.yaw, entityplayer.pitch);
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

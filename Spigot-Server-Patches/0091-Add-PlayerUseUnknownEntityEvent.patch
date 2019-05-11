@@ -1,4 +1,4 @@
-From b90ee7c51e4b323e8c206bf7006f36484f8cfa9c Mon Sep 17 00:00:00 2001
+From dcc62518f86db845227aa3aad9ddd9fc193ef481 Mon Sep 17 00:00:00 2001
 From: Jedediah Smith <jedediah@silencegreys.com>
 Date: Sat, 2 Apr 2016 05:09:16 -0400
 Subject: [PATCH] Add PlayerUseUnknownEntityEvent
@@ -18,10 +18,10 @@ index 77440ac81..8711462e1 100644
      private Vec3D c;
      private EnumHand d;
 diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
-index f944eff87..72c06cdb8 100644
+index 8a403354d..545899fc2 100644
 --- a/src/main/java/net/minecraft/server/PlayerConnection.java
 +++ b/src/main/java/net/minecraft/server/PlayerConnection.java
-@@ -1873,6 +1873,16 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+@@ -1874,6 +1874,16 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
                  }
              }
          }
@@ -39,5 +39,5 @@ index f944eff87..72c06cdb8 100644
      }
  
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

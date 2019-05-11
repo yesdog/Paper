@@ -1,4 +1,4 @@
-From cc3ec2a98907b7604edc114dffd2c31097000221 Mon Sep 17 00:00:00 2001
+From 0f28c829705694c9eec5ce4e436e664733b7e999 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Thu, 3 Mar 2016 04:00:11 -0600
 Subject: [PATCH] Timings v2
@@ -929,7 +929,7 @@ index c24f4a8fe..e01222ad2 100644
  
      }
 diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
-index d97cc4f72..1c90c9d7a 100644
+index 06f90ceca..b9e6a3275 100644
 --- a/src/main/java/net/minecraft/server/PlayerConnection.java
 +++ b/src/main/java/net/minecraft/server/PlayerConnection.java
 @@ -58,6 +58,7 @@ import org.bukkit.inventory.CraftingInventory;
@@ -956,7 +956,7 @@ index d97cc4f72..1c90c9d7a 100644
  
      }
  
-@@ -1601,7 +1600,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+@@ -1602,7 +1601,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
      // CraftBukkit end
  
      private void handleCommand(String s) {
@@ -965,7 +965,7 @@ index d97cc4f72..1c90c9d7a 100644
          // CraftBukkit start - whole method
          if ( org.spigotmc.SpigotConfig.logCommands ) // Spigot
          this.LOGGER.info(this.player.getName() + " issued server command: " + s);
-@@ -1612,7 +1611,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+@@ -1613,7 +1612,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
          this.server.getPluginManager().callEvent(event);
  
          if (event.isCancelled()) {
@@ -974,7 +974,7 @@ index d97cc4f72..1c90c9d7a 100644
              return;
          }
  
-@@ -1625,7 +1624,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
+@@ -1626,7 +1625,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
              java.util.logging.Logger.getLogger(PlayerConnection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
              return;
          } finally {
@@ -1811,5 +1811,5 @@ index c1071c92e..a99c0cea0 100644
      }
  }
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

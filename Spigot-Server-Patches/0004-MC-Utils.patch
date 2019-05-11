@@ -1,4 +1,4 @@
-From 15820719793e4d4aee4726cfde7d15541dfc4764 Mon Sep 17 00:00:00 2001
+From fc5f36e4bf4236061b9cd85fafab0a5ff55deb79 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Mon, 28 Mar 2016 20:55:47 -0400
 Subject: [PATCH] MC Utils
@@ -277,7 +277,7 @@ index b8abd6363..a07ee150c 100644
      // Paper end
  }
 diff --git a/src/main/java/net/minecraft/server/ItemStack.java b/src/main/java/net/minecraft/server/ItemStack.java
-index 132fe8e88..1fe7c0b01 100644
+index 9e763b6e3..a7fc14859 100644
 --- a/src/main/java/net/minecraft/server/ItemStack.java
 +++ b/src/main/java/net/minecraft/server/ItemStack.java
 @@ -36,10 +36,19 @@ import org.bukkit.event.world.StructureGrowEvent;
@@ -301,7 +301,7 @@ index 132fe8e88..1fe7c0b01 100644
      @Deprecated
      private Item item;
      private NBTTagCompound tag;
-@@ -584,6 +593,17 @@ public final class ItemStack {
+@@ -590,6 +599,17 @@ public final class ItemStack {
          return this.tag != null ? this.tag.getList("Enchantments", 10) : new NBTTagList();
      }
  
@@ -319,7 +319,7 @@ index 132fe8e88..1fe7c0b01 100644
      public void setTag(@Nullable NBTTagCompound nbttagcompound) {
          this.tag = nbttagcompound;
      }
-@@ -668,6 +688,7 @@ public final class ItemStack {
+@@ -674,6 +694,7 @@ public final class ItemStack {
          return this.tag != null && this.tag.hasKeyOfType("Enchantments", 9) ? !this.tag.getList("Enchantments", 10).isEmpty() : false;
      }
  
@@ -327,7 +327,7 @@ index 132fe8e88..1fe7c0b01 100644
      public void a(String s, NBTBase nbtbase) {
          this.getOrCreateTag().set(s, nbtbase);
      }
-@@ -743,6 +764,7 @@ public final class ItemStack {
+@@ -747,6 +768,7 @@ public final class ItemStack {
      // CraftBukkit start
      @Deprecated
      public void setItem(Item item) {
@@ -771,7 +771,7 @@ index 395215bbd..f2159bc2d 100644
          int j = 0;
          ChunkSection[] achunksection = chunk.getSections();
 diff --git a/src/main/java/net/minecraft/server/PlayerConnection.java b/src/main/java/net/minecraft/server/PlayerConnection.java
-index 330e74bb9..d97cc4f72 100644
+index aac5f9bfa..06f90ceca 100644
 --- a/src/main/java/net/minecraft/server/PlayerConnection.java
 +++ b/src/main/java/net/minecraft/server/PlayerConnection.java
 @@ -67,9 +67,9 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickable {
@@ -890,5 +890,5 @@ index 2ef4ac64b..f907d4f3b 100644
      /**
       * Mirror
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 
