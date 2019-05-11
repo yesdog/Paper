@@ -6,6 +6,7 @@ High performance Spigot fork that aims to fix gameplay and mechanics inconsisten
 Yesdog Additions:
 * PE stairs/slab/snow collision fix.
 * Alternate mob spawn mechanics.
+* Remove sign patch for now
 
 
 **Support and Project Discussion:**
