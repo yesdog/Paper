@@ -1,7 +1,7 @@
-From 1ce650fb2532ca46c43cdb739d7ea43518fa79e5 Mon Sep 17 00:00:00 2001
+From 80622a20e442a0e7e56669166e8eca38ca96165f Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Thu, 28 Mar 2019 19:48:49 -0600
-Subject: [PATCH] alternate mob spawning mechanic
+Subject: [PATCH] YESDOG alternate mob spawning mechanic
 
 
 diff --git a/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java b/src/main/java/com/destroystokyo/paper/PaperWorldConfig.java

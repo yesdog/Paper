@@ -1,7 +1,7 @@
-From b505fc0932153cb03992fde84400479a68f89108 Mon Sep 17 00:00:00 2001
+From 4594aebded5777adc65a984329ae049b65b4720f Mon Sep 17 00:00:00 2001
 From: Colin Godsey <crgodsey@gmail.com>
 Date: Sat, 9 Mar 2019 18:31:12 -0700
-Subject: [PATCH] stair collision for pe fix
+Subject: [PATCH] YESDOG stair collision for pe fix
 
 
 diff --git a/src/main/java/net/minecraft/server/IWorldReader.java b/src/main/java/net/minecraft/server/IWorldReader.java
