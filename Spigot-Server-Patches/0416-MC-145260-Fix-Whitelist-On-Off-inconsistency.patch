@@ -1,4 +1,4 @@
-From 4402cefabfdb626f0ccca5d655e2328b84bcb229 Mon Sep 17 00:00:00 2001
+From a64a97264c255bbbe5acf89caf7ec67f30737796 Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Sat, 2 Mar 2019 16:12:35 -0500
 Subject: [PATCH] MC-145260: Fix Whitelist On/Off inconsistency
@@ -11,7 +11,7 @@ everything to the Whitelist object.
 https://github.com/PaperMC/Paper/issues/1880
 
 diff --git a/src/main/java/net/minecraft/server/JsonList.java b/src/main/java/net/minecraft/server/JsonList.java
-index b7cde4d418..949039f89a 100644
+index b7cde4d41..949039f89 100644
 --- a/src/main/java/net/minecraft/server/JsonList.java
 +++ b/src/main/java/net/minecraft/server/JsonList.java
 @@ -64,6 +64,7 @@ public class JsonList<K, V extends JsonListEntry<K>> {
@@ -23,7 +23,7 @@ index b7cde4d418..949039f89a 100644
          this.e = flag;
      }
 diff --git a/src/main/java/net/minecraft/server/PlayerList.java b/src/main/java/net/minecraft/server/PlayerList.java
-index 135d25abd2..408c382d2a 100644
+index 135d25abd..408c382d2 100644
 --- a/src/main/java/net/minecraft/server/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/PlayerList.java
 @@ -63,7 +63,7 @@ public abstract class PlayerList {
@@ -62,5 +62,5 @@ index 135d25abd2..408c382d2a 100644
  
      public List<EntityPlayer> b(String s) {
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

@@ -1,0 +1,58 @@
+From 55ba3aba55024dc19803e6b4dfd3ee559e16c0ab Mon Sep 17 00:00:00 2001
+From: Colin Godsey <crgodsey@gmail.com>
+Date: Sat, 9 Mar 2019 18:31:12 -0700
+Subject: [PATCH] YESDOG stair collision for pe fix
+
+
+diff --git a/src/main/java/net/minecraft/server/IWorldReader.java b/src/main/java/net/minecraft/server/IWorldReader.java
+index 554825ec1..a9c227f78 100644
+--- a/src/main/java/net/minecraft/server/IWorldReader.java
++++ b/src/main/java/net/minecraft/server/IWorldReader.java
+@@ -111,7 +111,20 @@ public interface IWorldReader extends IBlockAccess {
+         return this.a(entity, VoxelShapes.a(axisalignedbb));
+     }
+ 
+-    default Stream<VoxelShape> a(VoxelShape voxelshape, VoxelShape voxelshape1, boolean flag) {
++    //yesdog start
++    default boolean rayTraceIgnore(IBlockData data, boolean isPlayer) {
++        if (!isPlayer) return false;
++        if (data.getBlock() instanceof BlockStairs) return true;
++        if (data.getBlock() instanceof BlockStepAbstract) return true;
++        if (data.getBlock() instanceof BlockCarpet) return true;
++        if (data.getBlock() instanceof BlockSnow) return true;
++
++        return false;
++    }
++    VoxelShape slimSmallBB = VoxelShapes.create(0.25, 0, 0.25, 0.75, 0.05, 0.75);
++    //yesdog end
++
++    default Stream<VoxelShape> a(VoxelShape voxelshape, VoxelShape voxelshape1, boolean flag, boolean isPlayer) { //yesdog
+         int i = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.X)) - 1;
+         int j = MathHelper.f(voxelshape.c(EnumDirection.EnumAxis.X)) + 1;
+         int k = MathHelper.floor(voxelshape.b(EnumDirection.EnumAxis.Y)) - 1;
+@@ -138,7 +151,12 @@ public interface IWorldReader extends IBlockAccess {
+                 if (flag && !flag1 && !worldborder.a((BlockPosition) blockposition_mutableblockposition)) {
+                     voxelshape2 = VoxelShapes.b();
+                 } else {
+-                    voxelshape2 = this.getType(blockposition_mutableblockposition).getCollisionShape(this, blockposition_mutableblockposition);
++                    //yesdog start
++                    //voxelshape2 = this.getType(blockposition_mutableblockposition).getCollisionShape(this, blockposition_mutableblockposition);
++                    IBlockData data = this.getType(blockposition_mutableblockposition);
++                    voxelshape2 = data.getCollisionShape(this, blockposition_mutableblockposition);
++                    if (rayTraceIgnore(data, isPlayer)) return slimSmallBB;
++                    //yesdog end
+                 }
+ 
+                 VoxelShape voxelshape3 = voxelshape1.a((double) (-k1), (double) (-l1), (double) (-i2));
+@@ -186,7 +204,7 @@ public interface IWorldReader extends IBlockAccess {
+             entity.n(!flag1);
+         }
+ 
+-        return this.a(voxelshape, voxelshape1, flag1);
++        return this.a(voxelshape, voxelshape1, flag1, entity instanceof EntityPlayer); //yesdog
+     }
+ 
+     default boolean i(Entity entity) {
+-- 
+2.17.2 (Apple Git-113)
+

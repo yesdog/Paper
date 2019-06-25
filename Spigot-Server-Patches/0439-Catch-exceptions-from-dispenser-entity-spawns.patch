@@ -1,11 +1,11 @@
-From e614a03a2ad21fdf3e18965cdb4ade849a9a3fd4 Mon Sep 17 00:00:00 2001
+From 3a9bf784827e59e1fa0014f2bd2dda1d0649238d Mon Sep 17 00:00:00 2001
 From: Shane Freeder <theboyetronic@gmail.com>
 Date: Mon, 10 Jun 2019 09:36:40 +0100
 Subject: [PATCH] Catch exceptions from dispenser entity spawns
 
 
 diff --git a/src/main/java/net/minecraft/server/DispenserRegistry.java b/src/main/java/net/minecraft/server/DispenserRegistry.java
-index f9d5489b7b..d564564420 100644
+index f9d5489b7..d56456442 100644
 --- a/src/main/java/net/minecraft/server/DispenserRegistry.java
 +++ b/src/main/java/net/minecraft/server/DispenserRegistry.java
 @@ -143,7 +143,13 @@ public class DispenserRegistry {
@@ -23,5 +23,5 @@ index f9d5489b7b..d564564420 100644
  
                  // itemstack.subtract(1); // Handled during event processing
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

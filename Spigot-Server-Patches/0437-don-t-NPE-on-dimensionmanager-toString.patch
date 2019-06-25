@@ -1,4 +1,4 @@
-From 23fe4c38f7f9259bf6d1f325a771d796c752dc62 Mon Sep 17 00:00:00 2001
+From ad36e9f6b23dd7c8291369c711675e0fad1bff2f Mon Sep 17 00:00:00 2001
 From: Shane Freeder <theboyetronic@gmail.com>
 Date: Mon, 22 Apr 2019 19:51:14 +0100
 Subject: [PATCH] don't NPE on dimensionmanager toString
@@ -14,7 +14,7 @@ this is not super elegant, but is the only route that promises not to
 break stuff.
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index c41422a0a5..9fb6c09907 100644
+index c41422a0a..9fb6c0990 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 @@ -999,7 +999,14 @@ public final class CraftServer implements Server {
@@ -34,5 +34,5 @@ index c41422a0a5..9fb6c09907 100644
  
          if (!(worlds.containsKey(name.toLowerCase(java.util.Locale.ENGLISH)))) {
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

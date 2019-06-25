@@ -1,4 +1,4 @@
-From 65ec7e6f63ce18e7104c5647956ead8a476ed70a Mon Sep 17 00:00:00 2001
+From 4b29bbb6692e4e76d1c6dd937ffb92559060661a Mon Sep 17 00:00:00 2001
 From: Aikar <aikar@aikar.co>
 Date: Wed, 27 Mar 2019 23:01:33 -0400
 Subject: [PATCH] PlayerDeathEvent#getItemsToKeep
@@ -8,7 +8,7 @@ Exposes a mutable array on items a player should keep on death
 Example Usage: https://gist.github.com/aikar/5bb202de6057a051a950ce1f29feb0b4
 
 diff --git a/src/main/java/net/minecraft/server/EntityPlayer.java b/src/main/java/net/minecraft/server/EntityPlayer.java
-index 1d37300832..b9d0c0f740 100644
+index 1d3730083..b9d0c0f74 100644
 --- a/src/main/java/net/minecraft/server/EntityPlayer.java
 +++ b/src/main/java/net/minecraft/server/EntityPlayer.java
 @@ -490,6 +490,46 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
@@ -75,5 +75,5 @@ index 1d37300832..b9d0c0f740 100644
          this.setSpectatorTarget(this); // Remove spectated target
          // CraftBukkit end
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

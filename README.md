@@ -1,7 +1,12 @@
-Paper [![Build Status](https://papermc.io/ci/job/Paper/badge/icon)](https://papermc.io/ci/job/Paper/)
+Yesdog Paper [![Build Status](https://travis-ci.org/yesdog/Paper.svg?branch=master)](https://travis-ci.org/yesdog/Paper)
 ===========
 
 High performance Spigot fork that aims to fix gameplay and mechanics inconsistencies.
+
+Yesdog Additions:
+* PE stairs/slab/snow collision fix.
+* Alternate mob spawn mechanics.
+* Remove sign patch for now
 
 
 **Support and Project Discussion:**

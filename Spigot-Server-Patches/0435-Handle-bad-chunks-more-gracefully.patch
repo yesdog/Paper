@@ -1,4 +1,4 @@
-From c783a97918fbfc9ec2da1f1cca9475bfcd4f7844 Mon Sep 17 00:00:00 2001
+From 0648dccc4601183019ffe7361ca236b50d405bcd Mon Sep 17 00:00:00 2001
 From: Shane Freeder <theboyetronic@gmail.com>
 Date: Mon, 15 Apr 2019 02:24:52 +0100
 Subject: [PATCH] Handle bad chunks more gracefully
@@ -15,7 +15,7 @@ Should Mojang choose to alter this behavior in the future, this change
 will simply defer to whatever that new behavior is.
 
 diff --git a/src/main/java/net/minecraft/server/RegionFileCache.java b/src/main/java/net/minecraft/server/RegionFileCache.java
-index 17e76815ad..369aaa84c4 100644
+index 17e76815a..369aaa84c 100644
 --- a/src/main/java/net/minecraft/server/RegionFileCache.java
 +++ b/src/main/java/net/minecraft/server/RegionFileCache.java
 @@ -171,8 +171,20 @@ public class RegionFileCache {
@@ -57,5 +57,5 @@ index 17e76815ad..369aaa84c4 100644
  
      @Nullable
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 

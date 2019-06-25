@@ -1,4 +1,4 @@
-From d661f8fa1f8e0207b7149db0bf5633331e3845a7 Mon Sep 17 00:00:00 2001
+From 35a5dc8376f46abece6abdd0df6f6cfefeb601c6 Mon Sep 17 00:00:00 2001
 From: kashike <kashike@vq.lc>
 Date: Wed, 20 Mar 2019 21:19:29 -0700
 Subject: [PATCH] Use proper max length when serialising BungeeCord text
@@ -6,7 +6,7 @@ Subject: [PATCH] Use proper max length when serialising BungeeCord text
 
 
 diff --git a/src/main/java/net/minecraft/server/PacketPlayOutChat.java b/src/main/java/net/minecraft/server/PacketPlayOutChat.java
-index eba6aadad7..3a332e980d 100644
+index eba6aadad..3a332e980 100644
 --- a/src/main/java/net/minecraft/server/PacketPlayOutChat.java
 +++ b/src/main/java/net/minecraft/server/PacketPlayOutChat.java
 @@ -3,7 +3,7 @@ package net.minecraft.server;
@@ -31,5 +31,5 @@ index eba6aadad7..3a332e980d 100644
              // Paper end
          } else {
 -- 
-2.21.0
+2.17.2 (Apple Git-113)
 
